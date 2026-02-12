@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Users, TrendingUp, AlertTriangle, Settings, LogOut, Menu, X } from 'lucide-react';
 
@@ -13,6 +13,19 @@ const Sidebar = ({ selectedTab, onTabChange }) => {
         { key: 'analytics', label: 'Analytics', icon: TrendingUp },
         { key: 'predictions', label: 'Predictions', icon: AlertTriangle },
     ];
+
+    // Prevent background scroll when mobile sidebar is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        return () => {
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, [isOpen]);
 
     const handleNavClick = (key) => {
         onTabChange(key);
@@ -31,6 +44,8 @@ const Sidebar = ({ selectedTab, onTabChange }) => {
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 text-white hover:bg-white/10 rounded-lg"
+                    aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-expanded={isOpen}
                 >
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
@@ -68,11 +83,12 @@ const Sidebar = ({ selectedTab, onTabChange }) => {
                         <button
                             key={key}
                             onClick={() => handleNavClick(key)}
-                            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all mb-1
+                            className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-lg text-[0.95rem] font-medium transition-all mb-1
                 ${selectedTab === key
-                                    ? 'bg-indigo-500/20 text-white border-l-3 border-indigo-500'
+                                    ? 'bg-indigo-500/20 text-white border-l-4 border-indigo-500'
                                     : 'text-gray-400 hover:text-white hover:bg-white/5'
                                 }`}
+                            aria-current={selectedTab === key ? 'page' : undefined}
                         >
                             <Icon className="w-5 h-5" />
                             <span>{label}</span>

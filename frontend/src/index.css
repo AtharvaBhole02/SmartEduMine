@@ -50,29 +50,18 @@
 
 @layer utilities {
 
-  /* Clean flat cards - Deel style */
-  .card-flat {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-  }
-
-  .card-flat:hover {
-    border-color: #d1d5db;
-  }
-
-  .glass-premium {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-  }
-
+  /* Unified card pattern - reuse across app */
+  .card-flat,
+  .glass-premium,
   .glass-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 0.75rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
   }
 
+  .card-flat:hover,
+  .glass-premium:hover,
   .glass-card:hover {
     border-color: #d1d5db;
   }
