@@ -1,0 +1,11 @@
+{
+  "overall_accuracy": 0.9468806509945751,
+  "academic_accuracy": 0.945750452079566,
+  "socioeconomic_accuracy": 0.6894213381555153,
+  "precision": 0.9472132794378175,
+  "recall": 0.9468806509945751,
+  "f1_score": 0.9468874936762246,
+  "total_students": 4424,
+  "correct_predictions": 4189,
+  "incorrect_predictions": 235
+}

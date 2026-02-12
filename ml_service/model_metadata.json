@@ -1,0 +1,26 @@
+{
+  "trained_at": "2026-02-12T09:47:46.062541Z",
+  "dataset_file": "dmsw_student_data.csv",
+  "total_students": 2000,
+  "train_samples": 1600,
+  "test_samples": 400,
+  "dropout_ratio": "28.5%",
+  "epochs_completed": 30,
+  "max_epochs": 30,
+  "early_stopping_patience": 5,
+  "accuracy": 1.0,
+  "loss": 0.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "confusion_matrix": {
+    "TP": 114,
+    "FP": 0,
+    "FN": 0,
+    "TN": 286
+  },
+  "class_weights": {
+    "0": 0.6993,
+    "1": 1.7544
+  }
+}
