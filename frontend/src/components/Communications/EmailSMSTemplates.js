@@ -52,17 +52,17 @@ const EmailSMSTemplates = ({ student, onSend }) => {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center space-x-2 text-blue-400 mb-2">
-        <Mail className="h-5 w-5" />
-        <span className="font-semibold">Email Communication</span>
+      <div className="flex items-center space-x-2 text-slate-700 mb-2">
+        <Mail className="h-4 w-4 text-blue-600" />
+        <span className="font-semibold text-sm">Email Communication</span>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">Select Template</label>
+        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Select Template</label>
         <select
           value={selectedTemplate}
           onChange={(e) => handleTemplateSelect(e.target.value)}
-          className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 rounded-lg bg-white border border-slate-300 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
         >
           <option value="">Choose a template...</option>
           {Object.keys(templates).map((key) => (
@@ -75,45 +75,46 @@ const EmailSMSTemplates = ({ student, onSend }) => {
 
       {selectedTemplate && (
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+          <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Subject</label>
           <input
             type="text"
             value={templates[selectedTemplate]?.subject || ''}
             readOnly
-            className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white"
+            className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-sm"
           />
         </div>
       )}
 
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Message</label>
         <textarea
           value={customMessage}
           onChange={(e) => setCustomMessage(e.target.value)}
-          rows={8}
+          rows={6}
           placeholder="Type your message or select a template..."
-          className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
         />
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-slate-400 mt-1 text-right">
           {customMessage.length} characters
         </p>
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 pt-1">
         <button
           onClick={handleSend}
           disabled={!customMessage.trim()}
-          className="flex-1 flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 flex items-center justify-center space-x-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm font-medium"
         >
-          <Send className="h-5 w-5" />
+          <Send className="h-4 w-4" />
           <span>Send Email</span>
         </button>
         <button
           onClick={handleCopy}
           disabled={!customMessage.trim()}
-          className="px-4 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+          title="Copy to Clipboard"
         >
-          {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+          {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
         </button>
       </div>
     </div>
