@@ -11,9 +11,11 @@ export const useToast = () => {
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
+  const toastCounter = React.useRef(0);
 
   const addToast = useCallback((message, type = 'info', duration = 5000) => {
-    const id = Date.now();
+    toastCounter.current += 1;
+    const id = `${Date.now()}-${toastCounter.current}`;
     setToasts(prev => [...prev, { id, message, type, duration }]);
   }, []);
 

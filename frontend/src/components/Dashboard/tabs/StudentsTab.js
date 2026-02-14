@@ -27,7 +27,7 @@ const StudentsTab = ({
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="text-2xl font-semibold text-gray-900">Students</h1>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-500 mt-2">
                         {students.length} students enrolled · {filteredStudents.length} shown
                     </p>
                 </div>
@@ -90,11 +90,11 @@ const StudentsTab = ({
                                 <span>Compare ({compareStudents.length})</span>
                             </button>
                         )}
-                        <button onClick={onImportCSV} className="flex-1 md:flex-none px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-medium transition-all shadow-sm flex items-center justify-center space-x-2 text-sm" aria-label="Import students from CSV">
+                        <button onClick={onImportCSV} className="flex-1 md:flex-none px-4 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all flex items-center justify-center space-x-2 text-sm" aria-label="Import students from CSV">
                             <Upload className="h-4 w-4" />
                             <span className="hidden md:inline">Import</span>
                         </button>
-                        <button onClick={onExport} className="flex-1 md:flex-none px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-medium transition-all shadow-sm flex items-center justify-center space-x-2 text-sm" aria-label="Export students as CSV">
+                        <button onClick={onExport} className="flex-1 md:flex-none px-4 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all flex items-center justify-center space-x-2 text-sm" aria-label="Export students as CSV">
                             <Download className="h-4 w-4" />
                             <span className="hidden md:inline">Export</span>
                         </button>
@@ -126,7 +126,7 @@ const StudentsTab = ({
                     {students.length === 0 && (
                         <button
                             onClick={onAddStudent}
-                            className="mt-6 px-6 py-3 bg-violet-500 hover:bg-violet-600 text-white rounded-xl font-medium transition-all flex items-center space-x-2 shadow-sm"
+                            className="mt-6 px-5 py-2.5 bg-violet-500 hover:bg-violet-600 text-white rounded-xl font-medium transition-all flex items-center space-x-2 shadow-sm"
                         >
                             <Plus className="h-5 w-5" />
                             <span>Add First Student</span>

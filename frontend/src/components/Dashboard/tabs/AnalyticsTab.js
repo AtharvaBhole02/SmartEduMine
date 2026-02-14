@@ -14,11 +14,11 @@ const AnalyticsTab = ({
             <div className="space-y-6">
                 <div>
                     <h1 className="text-2xl font-semibold text-gray-900">Analytics</h1>
-                    <p className="text-sm text-gray-500 mt-1">In-depth analysis of student performance and risk factors</p>
+                    <p className="text-sm text-gray-500 mt-2">In-depth analysis of student performance and risk factors</p>
                 </div>
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-16 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                        <Users className="h-8 w-8 text-gray-400" />
+                    <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                        <Users className="h-10 w-10 text-gray-400" />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">No data to analyze</h3>
                     <p className="text-sm text-gray-500 text-center max-w-md">
@@ -34,7 +34,7 @@ const AnalyticsTab = ({
             {/* Page Header */}
             <div>
                 <h1 className="text-2xl font-semibold text-gray-900">Analytics</h1>
-                <p className="text-sm text-gray-500 mt-1">In-depth analysis of student performance and risk factors</p>
+                <p className="text-sm text-gray-500 mt-2">In-depth analysis of student performance and risk factors</p>
             </div>
 
             {/* Risk Distribution Overview */}

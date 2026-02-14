@@ -56,7 +56,7 @@ const StudentCard = ({ student, onClick, isSelected, onToggleCompare, getRiskCol
                             e.stopPropagation();
                             onToggleCompare(student);
                         }}
-                        className={`p-2 rounded-lg transition-all ${isSelected ? 'bg-violet-500 text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}
+                        className={`p-2 rounded-xl transition-all ${isSelected ? 'bg-violet-500 text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}
                         aria-label={isSelected ? 'Remove from comparison' : 'Add to comparison'}
                     >
                         <GitCompare className="h-4 w-4" />

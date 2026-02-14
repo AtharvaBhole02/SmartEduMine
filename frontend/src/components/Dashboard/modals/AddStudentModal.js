@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Loader2 } from 'lucide-react';
+import { Plus, Loader2, X } from 'lucide-react';
 
 const AddStudentModal = ({
     newStudent,
@@ -15,8 +15,11 @@ const AddStudentModal = ({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm">
             <div className="relative max-w-2xl w-full bg-white rounded-2xl shadow-2xl border border-gray-200 max-h-[90vh] overflow-y-auto">
-                <div className="p-5 md:p-6 border-b border-gray-100">
+                <div className="p-5 md:p-6 border-b border-gray-100 flex items-center justify-between">
                     <h2 className="text-xl md:text-2xl font-bold text-gray-900">Add New Student</h2>
+                    <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Close modal">
+                        <X className="h-5 w-5 text-gray-500" />
+                    </button>
                 </div>
                 <div className="p-5 md:p-6 space-y-5 md:space-y-6">
                     {/* Basic Information */}
@@ -25,15 +28,15 @@ const AddStudentModal = ({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                             <div>
                                 <label htmlFor="add-name" className="block text-xs font-medium text-gray-600 mb-1">Student Name <span className="text-red-500">*</span></label>
-                                <input id="add-name" type="text" placeholder="e.g. John Doe" value={newStudent.name} onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })} className="glass-input" />
+                                <input id="add-name" type="text" placeholder="e.g. John Doe" value={newStudent.name} onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })} className="modal-input" />
                             </div>
                             <div>
                                 <label htmlFor="add-email" className="block text-xs font-medium text-gray-600 mb-1">Email</label>
-                                <input id="add-email" type="email" placeholder="e.g. john@example.com" value={newStudent.email} onChange={(e) => setNewStudent({ ...newStudent, email: e.target.value })} className="glass-input" />
+                                <input id="add-email" type="email" placeholder="e.g. john@example.com" value={newStudent.email} onChange={(e) => setNewStudent({ ...newStudent, email: e.target.value })} className="modal-input" />
                             </div>
                             <div>
                                 <label htmlFor="add-phone" className="block text-xs font-medium text-gray-600 mb-1">Phone Number</label>
-                                <input id="add-phone" type="tel" placeholder="e.g. +1234567890" value={newStudent.phone} onChange={(e) => setNewStudent({ ...newStudent, phone: e.target.value })} className="glass-input" />
+                                <input id="add-phone" type="tel" placeholder="e.g. +1234567890" value={newStudent.phone} onChange={(e) => setNewStudent({ ...newStudent, phone: e.target.value })} className="modal-input" />
                             </div>
                             <div>
                                 <label htmlFor="add-age" className="block text-xs font-medium text-gray-600 mb-1">Age</label>
@@ -44,12 +47,12 @@ const AddStudentModal = ({
                                     min="0"
                                     value={newStudent.age}
                                     onChange={(e) => setNewStudent({ ...newStudent, age: Math.max(0, parseInt(e.target.value) || 0) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                             <div>
                                 <label htmlFor="add-gender" className="block text-xs font-medium text-gray-600 mb-1">Gender</label>
-                                <select id="add-gender" value={newStudent.gender} onChange={(e) => setNewStudent({ ...newStudent, gender: e.target.value })} className="glass-select">
+                                <select id="add-gender" value={newStudent.gender} onChange={(e) => setNewStudent({ ...newStudent, gender: e.target.value })} className="modal-select">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -58,7 +61,7 @@ const AddStudentModal = ({
                     </div>
 
                     {/* Academic Performance */}
-                    <div>
+                    <div className="pt-2 border-t border-gray-100">
                         <h3 className="text-sm font-semibold text-gray-700 mb-3">Academic Performance</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
                             <div>
@@ -71,7 +74,7 @@ const AddStudentModal = ({
                                     max="100"
                                     value={newStudent.attendance}
                                     onChange={(e) => setNewStudent({ ...newStudent, attendance: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                             <div>
@@ -84,7 +87,7 @@ const AddStudentModal = ({
                                     max="100"
                                     value={newStudent.avgGrade}
                                     onChange={(e) => setNewStudent({ ...newStudent, avgGrade: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                             <div>
@@ -97,7 +100,7 @@ const AddStudentModal = ({
                                     max="10"
                                     value={newStudent.behavioralScore}
                                     onChange={(e) => setNewStudent({ ...newStudent, behavioralScore: Math.min(10, Math.max(1, parseInt(e.target.value) || 0)) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                             <div>
@@ -109,7 +112,7 @@ const AddStudentModal = ({
                                     min="0"
                                     value={newStudent.coursesEnrolled}
                                     onChange={(e) => setNewStudent({ ...newStudent, coursesEnrolled: Math.max(0, parseInt(e.target.value) || 0) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                             <div>
@@ -121,33 +124,33 @@ const AddStudentModal = ({
                                     min="0"
                                     value={newStudent.coursesPassed}
                                     onChange={(e) => setNewStudent({ ...newStudent, coursesPassed: Math.max(0, parseInt(e.target.value) || 0) })}
-                                    className="glass-input"
+                                    className="modal-input"
                                 />
                             </div>
                         </div>
                     </div>
 
                     {/* Financial Status */}
-                    <div>
+                    <div className="pt-2 border-t border-gray-100">
                         <h3 className="text-sm font-semibold text-gray-700 mb-3">Financial Status</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
                             <div>
                                 <label htmlFor="add-scholarship" className="block text-xs font-medium text-gray-600 mb-1">Scholarship</label>
-                                <select id="add-scholarship" value={newStudent.scholarship} onChange={(e) => setNewStudent({ ...newStudent, scholarship: e.target.value })} className="glass-select">
+                                <select id="add-scholarship" value={newStudent.scholarship} onChange={(e) => setNewStudent({ ...newStudent, scholarship: e.target.value })} className="modal-select">
                                     <option value="0">No Scholarship</option>
                                     <option value="1">Scholarship Holder</option>
                                 </select>
                             </div>
                             <div>
                                 <label htmlFor="add-debtor" className="block text-xs font-medium text-gray-600 mb-1">Debt Status</label>
-                                <select id="add-debtor" value={newStudent.debtor} onChange={(e) => setNewStudent({ ...newStudent, debtor: e.target.value })} className="glass-select">
+                                <select id="add-debtor" value={newStudent.debtor} onChange={(e) => setNewStudent({ ...newStudent, debtor: e.target.value })} className="modal-select">
                                     <option value="0">No Outstanding Debt</option>
                                     <option value="1">Has Outstanding Debt</option>
                                 </select>
                             </div>
                             <div>
                                 <label htmlFor="add-tuition" className="block text-xs font-medium text-gray-600 mb-1">Tuition Status</label>
-                                <select id="add-tuition" value={newStudent.tuitionUpToDate} onChange={(e) => setNewStudent({ ...newStudent, tuitionUpToDate: e.target.value })} className="glass-select">
+                                <select id="add-tuition" value={newStudent.tuitionUpToDate} onChange={(e) => setNewStudent({ ...newStudent, tuitionUpToDate: e.target.value })} className="modal-select">
                                     <option value="1">Tuition Up to Date</option>
                                     <option value="0">Tuition Not Paid</option>
                                 </select>

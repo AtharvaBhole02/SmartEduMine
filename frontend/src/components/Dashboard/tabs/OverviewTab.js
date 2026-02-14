@@ -52,8 +52,8 @@ const OverviewTab = ({
             {/* Page Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-semibold text-gray-900">Dashboards</h1>
-                    <p className="text-sm text-gray-500 mt-1">Overview of student performance and risk analytics</p>
+                    <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+                    <p className="text-sm text-gray-500 mt-2">Overview of student performance and risk analytics</p>
                 </div>
                 <div className="flex items-center space-x-2">
                     <button onClick={onAddStudent} className="btn-primary flex items-center space-x-2">
@@ -108,14 +108,14 @@ const OverviewTab = ({
             {/* Charts Row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Trend Chart */}
-                <div className="bg-white rounded-lg p-5 border border-gray-200">
+                <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-base font-semibold text-gray-900">Dropout Trends</h3>
                         <select className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600">
                             <option>Last 6 months</option>
                         </select>
                     </div>
-                    <ResponsiveContainer width="100%" height={220}>
+                    <ResponsiveContainer width="100%" height={240}>
                         <AreaChart data={monthlyTrendData}>
                             <defs>
                                 <linearGradient id="colorPredictions" x1="0" y1="0" x2="0" y2="1">
@@ -150,7 +150,7 @@ const OverviewTab = ({
                 </div>
 
                 {/* Risk Distribution — with Tooltip + labels */}
-                <div className="bg-white rounded-lg p-5 border border-gray-200">
+                <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <h3 className="text-base font-semibold text-gray-900 mb-4">Risk Distribution</h3>
                     {totalStudents === 0 ? (
                         <div className="flex flex-col items-center justify-center py-12 text-gray-400">
@@ -159,7 +159,7 @@ const OverviewTab = ({
                         </div>
                     ) : (
                         <>
-                            <ResponsiveContainer width="100%" height={220}>
+                            <ResponsiveContainer width="100%" height={240}>
                                 <PieChart>
                                     <Pie
                                         data={riskDistribution}
@@ -193,7 +193,7 @@ const OverviewTab = ({
 
             {/* High Risk Alert Section — with chevron indicators */}
             {highRiskStudents > 0 && (
-                <div className="bg-white rounded-lg p-5 border border-gray-200">
+                <div className="bg-white rounded-xl p-5 border border-gray-200">
                     <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-3">
                             <div className="p-2 rounded-lg bg-red-50">
@@ -252,7 +252,7 @@ const OverviewTab = ({
             )}
 
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg p-5 border border-gray-200">
+            <div className="bg-white rounded-xl p-5 border border-gray-200">
                 <h3 className="text-base font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button onClick={onImportCSV} className="flex items-center justify-center space-x-2 p-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-gray-700 text-sm font-medium border border-gray-200" aria-label="Import CSV file">

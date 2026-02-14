@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     ArrowLeft, CheckCircle, XCircle, Bell, Server, RefreshCw,
-    Lock, Mail, MessageSquare, ShieldCheck, HelpCircle, Trash2
+    Lock, Trash2
 } from 'lucide-react';
 import { mlIntegration } from '../../utils/realTimeMLIntegration';
 
@@ -107,7 +107,7 @@ const SettingsPage = () => {
                 <div className="mb-8">
                     <button
                         onClick={() => navigate('/dashboard')}
-                        className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white text-gray-600 border border-gray-200 bg-white shadow-sm transition-all"
+                        className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white text-gray-600 transition-all"
                     >
                         <ArrowLeft className="h-5 w-5" />
                         <span>Back to Dashboard</span>
@@ -124,7 +124,7 @@ const SettingsPage = () => {
                                 {mlStatus.connected ? (
                                     <CheckCircle className="h-6 w-6 text-emerald-500" />
                                 ) : (
-                                    <XCircle className="h-6 w-6 text-red-500" />
+                                    <XCircle className="h-6 w-6 text-red-400" />
                                 )}
                                 <div>
                                     <p className="font-medium text-gray-900">
@@ -137,7 +137,7 @@ const SettingsPage = () => {
                             </div>
                             <button
                                 onClick={checkMLStatus}
-                                className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                                className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors"
                             >
                                 <RefreshCw className="h-4 w-4" />
                                 <span>Refresh</span>

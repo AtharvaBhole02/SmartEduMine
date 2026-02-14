@@ -80,11 +80,11 @@ const PredictionsTab = ({ students, onStudentClick }) => {
             <div className="space-y-6">
                 <div>
                     <h1 className="text-2xl font-semibold text-gray-900">Predictions</h1>
-                    <p className="text-sm text-gray-500 mt-1">ML-powered dropout risk predictions for all students</p>
+                    <p className="text-sm text-gray-500 mt-2">ML-powered dropout risk predictions for all students</p>
                 </div>
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-16 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                        <Users className="h-8 w-8 text-gray-400" />
+                    <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                        <Users className="h-10 w-10 text-gray-400" />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">No predictions available</h3>
                     <p className="text-sm text-gray-500 text-center max-w-md">
@@ -100,7 +100,7 @@ const PredictionsTab = ({ students, onStudentClick }) => {
             {/* Page Header */}
             <div>
                 <h1 className="text-2xl font-semibold text-gray-900">Predictions</h1>
-                <p className="text-sm text-gray-500 mt-1">ML-powered dropout risk predictions for all students</p>
+                <p className="text-sm text-gray-500 mt-2">ML-powered dropout risk predictions for all students</p>
             </div>
 
             {/* Summary Stats */}

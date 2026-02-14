@@ -23,7 +23,7 @@ const StatCard = ({ title, value, icon: Icon, color, subtitle, trend, trendDirec
     return (
         <div
             onClick={onClick}
-            className="bg-white rounded-lg p-5 cursor-pointer hover:shadow-sm transition-all border border-gray-200"
+            className="bg-white rounded-xl p-5 cursor-pointer hover:shadow-sm transition-all border border-gray-200"
         >
             <div className="flex items-center justify-between">
                 <div className="flex-1">

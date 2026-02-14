@@ -20,7 +20,7 @@ const HeaderWithNav = ({ interventionAlerts, selectedTab, onTabChange }) => {
   }, []);
 
   const tabs = [
-    { key: 'overview', label: 'Dashboards', icon: LayoutDashboard },
+    { key: 'overview', label: 'Dashboard', icon: LayoutDashboard },
     { key: 'students', label: 'Students', icon: Users },
     { key: 'analytics', label: 'Analytics', icon: TrendingUp },
     { key: 'predictions', label: 'Predictions', icon: AlertTriangle }
